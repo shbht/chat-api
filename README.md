@@ -29,12 +29,6 @@ Api component for chat application
     grunt
     ```
 
-* Runs the tests (the same as ```npm test```)
-
-    ```
-    grunt mochatest
-    ```
-
 * Compiles the .es6 files to .js
 
     ```
