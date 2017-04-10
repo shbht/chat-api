@@ -34,3 +34,7 @@ Api component for chat application
     ```
     grunt babel:dist
     ```
+
+Server will start at port : 8020
+
+healthcheck url: http://localhost:8020/chat-api/v1/healthcheck

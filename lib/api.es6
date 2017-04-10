@@ -7,6 +7,7 @@ import moment from "moment";
 import {ChatService} from "./services/ChatService";
 import {MongoDbService} from "./services/MongoDbService";
 import mwAllowCrossDomain from "./middleware/mwAllowCrossDomain";
+import mwErrorHandler from "./middleware/mwErrorHandler";
 
 let {NODE_ENV} = process.env,
   nodeEnv = NODE_ENV || "local",
@@ -50,6 +51,7 @@ app.get(`${urlPrefix}/messages`, (req, res) => {
 });
 
 app.use(methodOverride);
+app.use(mwErrorHandler);
 
 // Starts the app
 server.listen(app.get("port"), function () {
