@@ -18,7 +18,6 @@ let {NODE_ENV} = process.env,
   dbService = new MongoDbService(config),
   chatService;
 
-
 function init() {
   io.on("connection", function (socket) {
     console.log("io connection created");
@@ -40,7 +39,7 @@ app.use(`${urlPrefix}/healthcheck`, (req, res) => {
 
 app.get(`${urlPrefix}/messages`, (req, res) => {
   console.log("inside get message service");
-  chatService.listMessages.call(chatService)
+  chatService.listMessages()
     .then(msgs => {
       res.status(200).send(msgs);
     })
@@ -56,7 +55,7 @@ app.use(methodOverride);
 server.listen(app.get("port"), function () {
   console.log(`Server has started at datetime ${moment().format()} and is listening on port: ${app.get("port")}`);
 
-  process.on("uncaughtException", (err) => {
+  process.on("uncaughtException", err => {
     console.log("uncaughtException", err);
   });
 });

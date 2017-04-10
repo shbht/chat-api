@@ -1,7 +1,7 @@
 "use strict";
 
 export class ChatService {
-  constructor (socket, dbService) {
+  constructor(socket, dbService) {
     this.socket = socket;
     this.dbService = dbService;
 
@@ -12,7 +12,7 @@ export class ChatService {
 
   addUser(user) {
     console.log("user connected", user);
-    this.broadcast({text: `${user.name} joined`, type: "info"});
+    this.broadcast({"text": `${user.name} joined`, "type": "info"});
   }
 
   broadcast(message) {
@@ -51,6 +51,6 @@ export class ChatService {
 
   userDisconnect(user) {
     console.log("user disconnected", user);
-    this.broadcast({text: `${user.name} left`, type: "info"});
+    this.broadcast({"text": `${user.name} left`, "type": "info"});
   }
 }

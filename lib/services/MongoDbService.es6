@@ -32,7 +32,7 @@ export class MongoDbService {
   getMongoDBObject() {
 
     return this.dbConnection_
-      .catch(err => {
+      .catch(() => {
         return this.connectToDB();
       })
       .then(dbConn => {
