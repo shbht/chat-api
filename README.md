@@ -1,6 +1,10 @@
 # chat-api
 Api component for chat application
 
+## pre-requisites
+
+Run mongod instance at localhost, default port (27017), otherwise few features won't work.
+
 ## Setup
 
 1. Check the npm packages:
